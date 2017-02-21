@@ -1,0 +1,21 @@
+<h1>Products#index</h1>
+
+<%= form_tag(:action => "index") do %>
+	<%= text_field_tag "search", nil, placeholder: "Ingrese el nombre de producto", class: "class" %>
+	<%= text_field_tag "price", nil, placeholder: "Ingrese el valor" %>
+	<%= submit_tag "Enviar"%>
+<% end -%>
+<table>
+	<tr>
+		<th>Producto</th>
+		<th>Valor</th>
+		<th>Categoría</th>
+	</tr>
+	<% @productos.each do |producto| %>
+		<tr>
+			<td><%= producto.name %></td>
+			<td><%= producto.price.to_i %></td>
+			<td><%= producto.category.name %></td>
+		</tr>
+	<% end %>
+</table>
